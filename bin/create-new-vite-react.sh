@@ -1,4 +1,6 @@
-create_new_vite_react() {
+# create_new_vite_react
+
+main() {
   app_name="$1"
   echo " create_new_vite_react"
   echo " => app_name: $app_name"
@@ -17,4 +19,4 @@ create_new_vite_react() {
   echo " => done"
 }
 
-create_new_vite_react "$@"
+main "$@"

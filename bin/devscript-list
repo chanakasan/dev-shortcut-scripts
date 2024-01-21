@@ -1,9 +1,0 @@
-main() {
-  echo
-  echo " Dev Scripts List"
-  ls -la ~/dev-script/bin/*.sh
-  echo
-}
-
-main
-

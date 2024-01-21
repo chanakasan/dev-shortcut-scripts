@@ -1,0 +1,29 @@
+main() {
+  local a1="$1"
+  local fn=_$a1
+  if [[ $(type -t $fn ) == function ]]; then
+    $fn "${@:2}"
+  else
+    print_usage
+  fi
+}
+
+print_usage() {
+  echo
+  echo " devscript <cmd>"
+  echo 
+}
+
+_chmod() {
+  chmod +x ~/dev-script/bin/*
+}
+
+_list() {
+  echo
+  echo " Available scripts"
+  echo " ------------------"
+  ls -la ~/dev-script/bin/*.sh
+  echo
+}
+
+main "$@"
