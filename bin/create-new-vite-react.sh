@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# create_new_vite_react
 
 set -e
 
@@ -8,6 +7,7 @@ source $nex_lib_path/lib-input.sh
 source $nex_lib_path/lib-abort.sh
 source $nex_lib_path/lib-questions.sh
 
+# nx_create_new_vite_react <name>
 main() {
   app_name="$1"
   echo " create_new_vite_react"
