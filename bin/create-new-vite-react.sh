@@ -1,14 +1,24 @@
+#!/usr/bin/env bash
 # create_new_vite_react
+
+set -e
+
+source $nex_lib_path/lib-common.sh
+source $nex_lib_path/lib-input.sh
+source $nex_lib_path/lib-abort.sh
+source $nex_lib_path/lib-questions.sh
 
 main() {
   app_name="$1"
   echo " create_new_vite_react"
-  echo " => app_name: $app_name"
 
   if [ -z $app_name ]; then
-    echo "app_name required"
-    exit
+    app_name=`haiku`
   fi
+
+  echo " => app_name: $app_name"
+  ask_input my_ans " confirm?"
+  abort_if_not_true $(is_equal "y" $my_ans) "Error: Aborted by user"
   
   npm create vite@latest $app_name -- --template react-ts
   cd $app_name
