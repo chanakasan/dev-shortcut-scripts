@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source $nex_script_helpers
+source $devscript_helpers
 
 start_and_validate() {
   print_line "=> Script: install ts-jest"

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source $nex_script_helpers
+source $devscript_helpers
 
 main() {
   local wd="."
