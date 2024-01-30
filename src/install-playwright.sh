@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 source $devscript_helpers
 
 start_and_validate() {
