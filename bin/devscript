@@ -4,21 +4,11 @@ main() {
   if [[ $(type -t $fn ) == function ]]; then
     $fn "${@:2}"
   else
-    print_usage
+    print_list    
   fi
 }
 
-print_usage() {
-  echo
-  echo " devscript <cmd>"
-  echo 
-}
-
-_chmod() {
-  chmod +x ~/dev-script/bin/*
-}
-
-_list() {
+print_list() {
   echo
   echo " Available scripts"
   echo " ------------------"
