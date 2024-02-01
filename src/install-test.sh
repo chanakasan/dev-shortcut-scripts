@@ -6,8 +6,9 @@ source $devscript_helpers
 
 main() {
   local wd="."
-  local file="out2"
-  print_line "=> Script: TEST"
+  local wd_ans=""
+  local script_name="install TEST"
+  print_line "Hello"
 }
 
 main "$@"
