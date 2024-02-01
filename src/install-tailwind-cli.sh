@@ -20,19 +20,13 @@ install_packages() {
   add_to_commit package.json package-lock.json
 }
 
-copy_files() {
-  local dest_path=$wd
-  run_cmd cp -r $nex_script_path/tpl/tailwind-cli/* $dest_path
-  add_to_commit $dest_path
-}
-
 main() {
   local wd="$1"
   local wd_ans=""
   local flags="$2"
   start_and_validate
   install_packages
-  copy_files
+  copy_module "tailwind_cli"
   finish_and_commit
 }
 

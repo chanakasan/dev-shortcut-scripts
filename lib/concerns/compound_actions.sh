@@ -14,3 +14,12 @@ copy_module() {
   run_cmd ln -s $src_path $dest_path
   add_to_commit $dest_path
 }
+
+clone_module() {
+  local name="$1"
+  local base="$wd/modules"
+  local dest_path=$base/$name
+  run_cmd mkdir -p $base
+  run_cmd npx degit --mode=git NexParts/module-supabase-1 -- $dest_path
+  add_to_commit $dest_path
+}
