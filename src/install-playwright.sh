@@ -4,17 +4,17 @@ set -e
 
 source $devscript_helpers
 
-start_and_validate() {
-  print_line "=> Script: install playwright"
-  validate_wd_git
+main() {
+  local wd="$1"
+  local wd_ans=""
+  local script_name="install playwright"
+  start_and_validate
+  install
+  copy_module "playwright"
+  finish_and_commit
 }
 
-finish_and_commit() {
-  commit_changes "script: install playwright"
-  print_line "=> done"
-}
-
-install_packages() {
+install() {
   run_cmd npm init playwright@latest --yes -- --quiet --browser=chromium --lang=ts
   add_to_commit package.json package-lock.json
   add_to_commit playwright*
@@ -22,15 +22,6 @@ install_packages() {
   add_to_commit .gitignore
 }
 
-main() {
-  local wd="$1"
-  local wd_ans=""
-  local script_name="install playwright"
-  start_and_validate
-  install_packages
-  copy_module "playwright"
-  finish_and_commit
-}
 
 main "$@"
 
