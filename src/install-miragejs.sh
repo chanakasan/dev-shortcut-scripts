@@ -34,7 +34,7 @@ main() {
   local wd_ans=""
   start_and_validate
   install_packages
-  copy_files
+  copy_module "miragejs"
   finish_and_commit
 }
 

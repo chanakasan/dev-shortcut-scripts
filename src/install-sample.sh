@@ -19,19 +19,16 @@ install_packages() {
   add_to_commit package.json package-lock.json
 }
 
-copy_files() {
-  local dest_path=$wd
-  run_cmd cp -r $nex_script_path/tpl//* $dest_path
-  add_to_commit $dest_path
-}
-
 main() {
   local wd="$1"
   local flags="$2"
   local wd_ans=""
+  if [ -z "$wd" ]; then
+    wd="$pwd"
+  fi
   start_and_validate
   install_packages
-  copy_module "ts-jest"
+  copy_module "sample"
   finish_and_commit
 }
 
