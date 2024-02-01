@@ -6,12 +6,12 @@ source $devscript_helpers
 
 main() {
   local wd="$1"
-  local flags="$2"
   local wd_ans=""
-  start_and_validate "babel_jest"
+  local script_name="install babel_jest"
+  start_and_validate
   install
   copy_module "babel_jest"
-  commit_and_finish "babel_jest"
+  commit_and_finish
 }
 
 install() {
