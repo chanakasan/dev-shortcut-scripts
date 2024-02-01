@@ -36,3 +36,8 @@ commit_and_finish() {
   print_line " done"
   print_line
 }
+
+install_packages() {
+  run_npm_install "$@"
+  add_to_commit package.json package-lock.json
+}

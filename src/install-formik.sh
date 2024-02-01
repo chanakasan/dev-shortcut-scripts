@@ -11,17 +11,7 @@ main() {
   start_and_validate "install_formik"
   install_packages
   copy_module "formik"
-  finish_and_commit
-}
-
-start_and_validate() {
-  print_line "=> Script: install formik"
-  validate_wd_git
-}
-
-finish_and_commit() {
-  commit_changes "script: install formik"
-  print_line "=> done"
+  finish_and_commit "install_formik"
 }
 
 install_packages() {

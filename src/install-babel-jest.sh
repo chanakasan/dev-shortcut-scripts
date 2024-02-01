@@ -9,15 +9,19 @@ main() {
   local flags="$2"
   local wd_ans=""
   start_and_validate "babel_jest"
-  install_packages
+  install
   copy_module "babel_jest"
   commit_and_finish "babel_jest"
 }
 
-install_packages() {
-  run_npm_install -D jest babel-jest @babel/core @babel/preset-env @babel/preset-react
-  run_npm_install -D jest-environment-jsdom jest-spec-reporter
-  add_to_commit package.json package-lock.json
+install() {
+  s1="jest babel-jest @babel/core"
+  s2="@babel/preset-env @babel/preset-react"
+  s3="jest-environment-jsdom jest-spec-reporter"
+  dev_list="$s1 $s2 $s3"
+  echo $dev_list
+  exit 1
+  install_packages -D $dev_list
 }
 
 main "$@"
