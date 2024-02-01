@@ -1,25 +1,18 @@
-dirname__() {
-  echo $(dirname "$0")
+
+add_to_commit() {
+  if [ "$(is_skip_git)" == "true" ]; then
+    return
+  fi
+  git add $@
 }
 
-is_var_defined() {
-  local -n candidate_ref=$1
-  if [ -z "${candidate_ref+foo}" ]; then
-    echo "false"
-  else
-    echo "true"
+commit_changes() {
+  if [ "$(is_skip_git)" == "true" ]; then
+    return
   fi
+  git commit -m "$1"
 }
 
-is_wd_exists() {
-  if [ -z $wd ]; then
-    echo "false"
-  elif [ -d $wd ]; then
-    echo "true"
-  else
-    echo "false"
-  fi
-}
 
 is_git_has_modified() {
   if [ "$(is_skip_git)" == "true" ]; then
@@ -64,32 +57,3 @@ is_skip_git() {
     echo "false"
   fi
 }
-
-abort_if_true() {
-  local v="$1"
-  local msg="$2"
-  if [ "$v" == "true" ]; then
-    echo $msg
-    exit 1
-  fi
-}
-
-abort_if_not_true() {
-  local v="$1"
-  local msg="$2"
-  if [ "$v" != "true" ]; then
-    echo $msg
-    exit 1
-  fi
-}
-
-is_equal() {
-  local v1="$1"
-  local v2="$2"
-  if [ "$v1" == "$v2" ]; then
-    echo "true"
-  else
-    echo "false"
-  fi
-}
-

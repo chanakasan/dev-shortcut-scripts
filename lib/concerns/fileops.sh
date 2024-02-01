@@ -28,3 +28,12 @@ remove_section_from_file() {
   local prefix="$2"
   sed -i '/#__'"$prefix"'_start/,/#__'"$prefix"'_end/{d}' $file
 }
+
+write_file() {
+  local path="$1"
+  local str="$2"
+  echo $path
+  tee $path >/dev/null <<STR
+$str
+STR
+}
