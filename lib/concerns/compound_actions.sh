@@ -23,3 +23,16 @@ clone_module() {
   run_cmd npx degit --mode=git NexParts/module-supabase-1 -- $dest_path
   add_to_commit $dest_path
 }
+
+start_and_validate() {
+  local script_name="$1"
+  print_line " => Running: $script_name"
+  validate_wd_git
+}
+
+commit_and_finish() {
+  local script_name="$1"
+  commit_changes "script: $script_name"
+  print_line " done"
+  print_line
+}

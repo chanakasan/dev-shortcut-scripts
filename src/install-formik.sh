@@ -4,6 +4,16 @@ set -e
 
 source $devscript_helpers
 
+main() {
+  local wd="$1"
+  local flags="$2"
+  local wd_ans=""
+  start_and_validate "install_formik"
+  install_packages
+  copy_module "formik"
+  finish_and_commit
+}
+
 start_and_validate() {
   print_line "=> Script: install formik"
   validate_wd_git
@@ -19,14 +29,5 @@ install_packages() {
   add_to_commit package.json package-lock.json
 }
 
-main() {
-  local wd="$1"
-  local flags="$2"
-  local wd_ans=""
-  start_and_validate
-  install_packages
-  copy_module "formik"
-  finish_and_commit
-}
 
 main "$@"
