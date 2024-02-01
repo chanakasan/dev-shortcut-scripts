@@ -6,12 +6,12 @@ source $devscript_helpers
 
 main() {
   local wd="$1"
-  local flags="$2"
   local wd_ans=""
-  start_and_validate "sample"
+  local script_name="install sample"
+  start_and_validate
   install
   copy_module "sample"
-  finish_and_commit "sample"
+  finish_and_commit
 }
 
 install() {

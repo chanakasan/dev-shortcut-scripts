@@ -25,7 +25,7 @@ install_packages() {
 main() {
   local wd="$1"
   local wd_ans=""
-  local flags=""
+  local script_name="install playwright"
   start_and_validate
   install_packages
   copy_module "playwright"
