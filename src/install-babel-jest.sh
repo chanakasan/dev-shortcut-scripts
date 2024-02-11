@@ -11,7 +11,7 @@ main() {
   start_and_validate
   install
   copy_module "babel_jest"
-  commit_and_finish
+  finish_and_commit
 }
 
 install() {

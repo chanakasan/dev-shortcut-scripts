@@ -8,9 +8,9 @@ copy_module() {
   local base="$wd/modules"
   local modules_path=$HOME/modules
   local src_path=$modules_path/$name
-  local dest_path=$base/$name
+  local dest_path=$base
   run_cmd mkdir -p $dest_path
-  # run_cmd cp -r $src_path/* $dest_path
+  # run_cmd cp -r $src_path $dest_path/
   run_cmd ln -s $src_path $dest_path
   add_to_commit $dest_path
 }
@@ -26,13 +26,11 @@ clone_module() {
 }
 
 start_and_validate() {
-  local script_name="$1"
   print_line "=> Start: $script_name"
   validate_wd_git
 }
 
-commit_and_finish() {
-  local script_name="$1"
+finish_and_commit() {
   commit_changes "script: $script_name"
   print_line "done"
   print_line

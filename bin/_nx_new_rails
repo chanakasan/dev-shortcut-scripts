@@ -1,0 +1,1 @@
+create-new-rails7-sqlite.sh "$@"

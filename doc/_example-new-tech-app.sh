@@ -4,7 +4,7 @@ main() {
   app_name="$1"
   start_and_validate  
   run_commands
-  commit_and_finish
+  finish_and_commit
 }
 
 run_commands() {
@@ -21,7 +21,7 @@ start_and_validate() {
   fi
 }
 
-commit_and_finish() {
+finish_and_commit() {
   cd $app_name
   git init
   git add .

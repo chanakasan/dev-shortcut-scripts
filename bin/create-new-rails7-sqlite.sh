@@ -1,25 +1,23 @@
-# create_new_rails7_postgres
+# create_new_rails7_sqli
 
 main() {
-  app_name="$1"
+  local app_name="$1"
   start_and_validate  
-  run_commands
+  create_app
   finish_and_commit
 }
 
-run_commands() {
-  rails new $app_name --database=postgresql \
+create_app() {
+  rails new $app_name --database=sqlite3 \
     --skip-bundle
 }
 
 start_and_validate() {
-  echo " create_new_rails7_postgres"
-  echo " => app_name: $app_name"
-
   if [ -z $app_name ]; then
-    echo "app_name required"
-    exit
+    app_name=`haiku`
   fi
+  echo " create_new_rails7_sqli"
+  echo " => app_name: $app_name"
 }
 
 finish_and_commit() {
