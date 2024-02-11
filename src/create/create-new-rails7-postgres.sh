@@ -15,7 +15,7 @@ start_and_validate() {
   if [ -z $app_name ]; then
     app_name=`haiku`
   fi
-  echo "$script"
+  echo " $script"
   echo " => app_name: $app_name"
 }
 

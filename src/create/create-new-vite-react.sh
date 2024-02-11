@@ -9,18 +9,32 @@ source $nex_lib_path/lib-questions.sh
 
 # nx_create_new_vite_react <name>
 main() {
-  app_name="$1"
-  echo " create_new_vite_react"
+  local script=create_new_vite_react
+  local app_name="$1"
+  start_and_validate
+  confirm_create
+  create_app
+  finish_and_commit
+}
 
+create_app() {
+  npm create vite@latest $app_name -- --template react-ts
+}
+
+confirm_create() {
+  ask_input my_ans " confirm?"
+  abort_if_not_true $(is_equal "y" $my_ans) "Error: Aborted by user"
+}
+
+start_and_validate() {
   if [ -z $app_name ]; then
     app_name=`haiku`
   fi
-
+  echo " $script"
   echo " => app_name: $app_name"
-  ask_input my_ans " confirm?"
-  abort_if_not_true $(is_equal "y" $my_ans) "Error: Aborted by user"
-  
-  npm create vite@latest $app_name -- --template react-ts
+}
+
+finish_and_commit() {
   cd $app_name
   git init
   git add .
