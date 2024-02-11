@@ -1,1 +1,1 @@
-copy_tpl lara10
+_nx_copy_tpl lara10 "$@"

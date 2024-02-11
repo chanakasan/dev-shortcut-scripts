@@ -1,24 +1,22 @@
-# example_new_tech_app
-
 main() {
-  app_name="$1"
+  local script=create_new_rails7_postgres
+  local app_name="$1"
   start_and_validate  
-  run_commands
+  create_app
   finish_and_commit
 }
 
-run_commands() {
-  npm create vite@latest $app_name -- --template react-ts
+create_app() {
+  rails new $app_name --skip-bundle \
+    --database=postgresql
 }
 
 start_and_validate() {
-  echo " example_new_tech_app"
-  echo " => app_name: $app_name"
-
   if [ -z $app_name ]; then
-    echo "app_name required"
-    exit
+    app_name=`haiku`
   fi
+  echo "$script"
+  echo " => app_name: $app_name"
 }
 
 finish_and_commit() {

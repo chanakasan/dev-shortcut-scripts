@@ -1,2 +1,1 @@
-
-nex_lib_path
+env nex_lib_path

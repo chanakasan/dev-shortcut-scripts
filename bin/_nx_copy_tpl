@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+main() {
+  local name="$1"
+  local new_name=$(haiku)
+  local path1=$HOME/tpl/$name
+  if [ -d "$path1" ]; then
+    echo " copying to: $new_name"
+    cp -r $path1 $new_name
+  else
+    echo " not found: $path1"
+  fi
+}
+
+main "$@"

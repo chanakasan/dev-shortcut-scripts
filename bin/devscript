@@ -1,4 +1,5 @@
 main() {
+  local base_path=$HOME/dotfiles/devscript
   local a1="$1"
   local fn=_$a1
   if [[ $(type -t $fn ) == function ]]; then
@@ -12,7 +13,7 @@ print_list() {
   echo
   echo " Available scripts"
   echo " ------------------"
-  ls -la ~/dev-script/bin/*.sh
+  ls -la $base_path/src/create/*.sh
   echo
 }
 

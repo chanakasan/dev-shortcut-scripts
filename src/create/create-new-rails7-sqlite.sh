@@ -1,6 +1,5 @@
-# create_new_rails7_sqli
-
 main() {
+  local script=create_new_rails7_sqlite
   local app_name="$1"
   start_and_validate  
   create_app
@@ -8,15 +7,15 @@ main() {
 }
 
 create_app() {
-  rails new $app_name --database=sqlite3 \
-    --skip-bundle
+  rails new $app_name --skip-bundle \
+    --database=sqlite3
 }
 
 start_and_validate() {
   if [ -z $app_name ]; then
     app_name=`haiku`
   fi
-  echo " create_new_rails7_sqli"
+  echo "$script"
   echo " => app_name: $app_name"
 }
 
