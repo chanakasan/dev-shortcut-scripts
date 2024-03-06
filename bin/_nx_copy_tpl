@@ -1,14 +1,19 @@
 #!/usr/bin/env bash
 
 main() {
-  local name="$1"
-  local new_name=$(haiku)
-  local path1=$HOME/tpl/$name
-  if [ -d "$path1" ]; then
-    echo " copying to: $new_name"
-    cp -r $path1 $new_name
+  local tpl_name="$1"
+  local path1=$HOME/tpl/$tpl_name
+  local dest="$2"
+  if [ -z $dest ]; then
+    dest=`haiku`
   else
-    echo " not found: $path1"
+    dest=$dest/`haiku`
+  fi
+  if [ -d "$path1" ]; then
+    echo " copying $tpl_name => $dest"
+    rsync -a --exclude .git $path1/ $dest
+  else
+    echo " template not found: $path1"
   fi
 }
 

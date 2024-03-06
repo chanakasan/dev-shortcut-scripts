@@ -1,4 +1,0 @@
-base_path=$devscript_path/src/create
-cmd=$base_path/create-new-vite-react.sh
-
-"$cmd" "$@"
