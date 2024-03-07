@@ -6,15 +6,19 @@ main() {
   local dest="$2"
   if [ -z $dest ]; then
     dest=`haiku`
-  else
-    dest=$dest/`haiku`
   fi
+  # confirm_create
   if [ -d "$path1" ]; then
     echo " copying $tpl_name => $dest"
     rsync -a --exclude .git $path1/ $dest
   else
     echo " template not found: $path1"
   fi
+}
+
+confirm_create() {
+  ask_input answer " confirm?"
+  abort_if_not_true $(is_equal "y" $answer) "Error: Aborted by user"
 }
 
 main "$@"

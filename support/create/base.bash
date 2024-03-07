@@ -19,3 +19,7 @@ finish_and_commit() {
   echo 
   echo " => done"
 }
+
+require_param() {
+  local a1=$1
+}
