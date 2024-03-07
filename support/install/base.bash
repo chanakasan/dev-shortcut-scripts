@@ -3,7 +3,7 @@ start_and_validate() {
 }
 
 finish_and_commit() {
-  commit_changes "devscript: $script_name"
+  commit_changes "script: $script_name"
   print_line "done"
   print_line
 }

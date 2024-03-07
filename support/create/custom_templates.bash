@@ -6,7 +6,7 @@ create_react_local() {
 create_react_custom() {
   require_param app_name
   local url="git@github.com:chanakasan/custom-vite-framework.git"
-  degit_tpl_repo $url $app_name
+  degit_app_tpl $url $app_name
 }
 
 create_lara10_local() {

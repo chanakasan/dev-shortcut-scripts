@@ -1,4 +1,4 @@
-degit_tpl_repo() {
+degit_app_tpl() {
   local url="$1"
   local dest="$2"
   npx degit --mode=git $url -- $dest
