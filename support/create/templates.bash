@@ -9,13 +9,13 @@ create_vite_react_ts() {
 
 create_vite_react_local() {
   require_param app_name
-  duplicate_template_folder "custom-vite-framework" $app_name
+  copy_app_tpl "custom-vite-framework" $app_name
 }
 
 create_vite_react() {
   require_param app_name
   local url="git@github.com:chanakasan/custom-vite-framework.git"
-  degit_template_repo $url $app_name
+  degit_tpl_repo $url $app_name
 }
 
 create_rails7_sqlite() {
@@ -29,6 +29,10 @@ create_rails7_postgres() {
     --database=postgresql
 }
 
-create_laravel10() {
+create_lara10() {
   composer create-project laravel/laravel $app_name
+}
+
+create_lara10_local() {
+  copy_app_tpl "lara10-local" $app_name
 }

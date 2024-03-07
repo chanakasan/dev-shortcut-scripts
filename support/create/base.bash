@@ -1,8 +1,3 @@
-source $nex_lib_path/lib-base.sh
-source $nex_lib_path/lib-input.sh
-source $nex_lib_path/lib-actions.sh
-source $nex_lib_path/lib-predicates.sh
-
 start_and_validate() {
   if [ -z $app_name ]; then
     app_name=`haiku`
@@ -24,4 +19,3 @@ finish_and_commit() {
   echo 
   echo " => done"
 }
-
