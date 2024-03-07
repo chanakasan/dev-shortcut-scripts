@@ -1,11 +1,11 @@
 main() {
   local name="$1"
-  local full_script_name=install-$name.sh
+  local full_script_name=install/$name.sh
   local file_path=$devscript_path/src/$full_script_name
   if [ -z $name ]; then
     echo " usage: nex install <module>"
   elif [ -f $file_path ]; then
-    echo " Running $full_script_name"
+    echo " Running script: $full_script_name"
     bash  $file_path "${@:2}"
   else
     echo " script not found: $full_script_name"

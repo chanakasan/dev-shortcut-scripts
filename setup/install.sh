@@ -35,7 +35,6 @@ copy_to_bashrc() {
   echo "#$start_text" >> $bashrc
   echo 'export devscript_path='$devscript_path >> $bashrc
   echo 'export PATH=$devscript_path/bin:$PATH' >> $bashrc
-  echo 'export devscript_helpers=$devscript_path/lib/helpers.sh' >> $bashrc
   echo "#$end_text" >> $bashrc
   echo "" >> $bashrc
 }

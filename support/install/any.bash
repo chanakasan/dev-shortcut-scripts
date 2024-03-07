@@ -1,8 +1,3 @@
-run_npm_install() {
-  local args=$@
-  run_cmd npm install $args
-}
-
 copy_module() {
   local name="$1"
   local base="$wd/modules"
@@ -25,18 +20,3 @@ clone_module() {
   add_to_commit $dest_path
 }
 
-start_and_validate() {
-  print_line "=> Start: $script_name"
-  validate_wd_git
-}
-
-finish_and_commit() {
-  commit_changes "script: $script_name"
-  print_line "done"
-  print_line
-}
-
-install_packages() {
-  run_npm_install "$@"
-  add_to_commit package.json package-lock.json
-}

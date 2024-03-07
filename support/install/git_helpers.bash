@@ -1,4 +1,3 @@
-
 add_to_commit() {
   if [ "$(is_skip_git)" == "true" ]; then
     return
@@ -12,7 +11,6 @@ commit_changes() {
   fi
   git commit -m "$1"
 }
-
 
 is_git_has_modified() {
   if [ "$(is_skip_git)" == "true" ]; then
