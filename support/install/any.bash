@@ -1,6 +1,6 @@
 copy_module() {
   local name="$1"
-  local base="$wd/modules"
+  local base="$wdir/modules"
   local modules_path=$HOME/lib/modules
   local src_path=$modules_path/$name
   local dest_path=$base
@@ -12,7 +12,7 @@ copy_module() {
 
 degit_module() {
   local name="$1"
-  local base="$wd/modules"
+  local base="$wdir/modules"
   local dest_path=$base/$name
   local url=NexParts/module-$name
   run_cmd mkdir -p $base

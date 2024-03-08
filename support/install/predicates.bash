@@ -8,9 +8,9 @@ is_var_defined() {
 }
 
 is_wd_exists() {
-  if [ -z $wd ]; then
+  if [ -z $wdir ]; then
     echo "false"
-  elif [ -d $wd ]; then
+  elif [ -d $wdir ]; then
     echo "true"
   else
     echo "false"

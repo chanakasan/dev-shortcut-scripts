@@ -5,8 +5,8 @@ set -e
 source $devscript_path/support/install/index.sh
 
 main() {
-  local wd="$1"
-  local wd_ans=""
+  local wdir="$1"
+  local wdir_answer=""
   local script_name="install/miragejs"
   start_and_validate
   install_packages -D miragejs

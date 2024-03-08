@@ -5,9 +5,9 @@ set -e
 source $devscript_helpers
 
 main() {
-  local wd="$1"
+  local wdir="$1"
   local flags="$2"
-  local wd_ans=""
+  local wdir_answer=""
   local script_name="install ts_jest"
   start_and_validate
   install

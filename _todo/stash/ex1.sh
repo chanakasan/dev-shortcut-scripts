@@ -1,5 +1,5 @@
 create_file_2() {
-  local file_1=$wd/styles.css
+  local file_1=$wdir/styles.css
   print_line "=> create tailwind.css"
   write_file $file_1 "$(cat <<TXT
 @tailwind base;

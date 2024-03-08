@@ -6,8 +6,8 @@ set -e
 source $devscript_helpers
 
 main() {
-  local wd="$1"
-  local wd_ans=""
+  local wdir="$1"
+  local wdir_answer=""
   local script_name="install tailwind_cli"
   start_and_validate
   install_packages -D tailwindcss
