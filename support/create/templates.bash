@@ -10,8 +10,11 @@ create_vite_react() {
 
 create_rails7_sqlite() {
   require_param app_name
-  rails new $app_name --skip-bundle \
-    --database=sqlite3
+  rails new $app_name --skip-jbuilder \
+    # --skip-bundle \
+    --database=sqlite3 \
+    --css tailwind \
+    --js esbuild
 }
 
 create_rails7_postgres() {
