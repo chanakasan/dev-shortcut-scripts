@@ -9,17 +9,20 @@ create_vite_react() {
 }
 
 create_rails7_sqlite() {
-  require_param app_name
-  rails new $app_name --skip-jbuilder \
-    # --skip-bundle \
-    --database=sqlite3 \
-    --css tailwind \
-    --js esbuild
+  local tpl_base=$devscript_path/src/_tpl/rails
+  rails new $app_name \
+-m $tpl_base/starter/main.rb \
+--skip-bundle \
+--database=sqlite3 \
+--js esbuild \
+--css tailwind
 }
 
 create_rails7_postgres() {
-  rails new $app_name --skip-bundle \
-    --database=postgresql
+  rails new $app_name --skip-jbuilder \
+--database=postgresql \
+--js esbuild \
+--css tailwind
 }
 
 create_lara10() {
