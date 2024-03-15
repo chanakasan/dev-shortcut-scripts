@@ -1,17 +1,13 @@
 source_paths.unshift(File.dirname(__FILE__))
 
 def run_main
+  create_first_commit
   apply "home.rb"
-  one
-  two
 end
 
-def one
-  say "One"
-end
-
-def two
-  say "Two"
+def create_first_commit
+  git add: "."
+  git commit: %Q{ -m "first commit" }
 end
 
 run_main
