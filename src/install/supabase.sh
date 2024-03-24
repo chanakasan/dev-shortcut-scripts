@@ -2,12 +2,12 @@
 
 set -e
 
-source $devscript_helpers
+source $devscript_path/support/install/index.sh
 
 main() {
   local wdir="$1"
   local wdir_answer=""
-  local script_name="install supabase"
+  local script_name="install/supabase"
   start_and_validate
   install_packages @supabase/supabase-js
   copy_module "supabase"
