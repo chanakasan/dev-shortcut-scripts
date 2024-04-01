@@ -9,9 +9,7 @@ create_vite_react() {
 }
 
 create_rails7_sqlite() {
-  local tpl_base=$HOME/railstpl/src
   rails new $app_name \
--m $tpl_base/new_app/starter/main.rb \
 --database=sqlite3 \
 --js esbuild \
 --css tailwind
@@ -19,9 +17,7 @@ create_rails7_sqlite() {
 }
 
 create_rails7_postgres() {
-  local tpl_base=$HOME/railstpl/src
   rails new $app_name \
--m $tpl_base/new_app/starter/main.rb \
 --database=postgresql \
 --js esbuild \
 --css tailwind
