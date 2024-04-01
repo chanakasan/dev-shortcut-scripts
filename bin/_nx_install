@@ -5,10 +5,10 @@ main() {
   if [ -z $name ]; then
     echo " usage: nex install <module>"
   elif [ -f $file_path ]; then
-    echo " Running script: $full_script_name"
+    echo " Running script: $file_path"
     bash  $file_path "${@:2}"
   else
-    echo " script not found: $full_script_name"
+    echo " script not found: $file_path"
   fi
 }
 
