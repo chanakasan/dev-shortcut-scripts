@@ -2,7 +2,7 @@
 
 set -e
 
-source $devscript_path/support/create/index.sh
+source $devscript_path/lib/support/create/index.sh
 
 main() {
   local script=create/rails_pg.sh

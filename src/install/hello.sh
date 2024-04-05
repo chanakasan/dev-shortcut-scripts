@@ -2,7 +2,7 @@
 
 set -e
 
-source $devscript_path/support/install/index.sh
+source $devscript_path/lib/support/install/index.sh
 
 main() {
   local wdir="$1"

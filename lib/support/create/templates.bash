@@ -16,6 +16,14 @@ create_rails7_sqlite() {
 # --skip-bundle \
 }
 
+create_rails7_sqlite_bootstrap() {
+  rails new $app_name \
+--database=sqlite3 \
+--js esbuild \
+--css bootstrap
+# --skip-bundle \
+}
+
 create_rails7_postgres() {
   rails new $app_name \
 --database=postgresql \

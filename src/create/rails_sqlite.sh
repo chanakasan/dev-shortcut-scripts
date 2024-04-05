@@ -5,11 +5,11 @@ set -e
 source $devscript_path/lib/support/create/index.sh
 
 main() {
-  local script=create/hello.sh
+  local script=create/rails.sh
   local app_name="$1"
-  echo app_name = $app_name
-  echo done
-  echo
+  start_and_validate
+  create_app "rails7_sqlite"
+  finish_and_commit
 }
 
 main "$@"
