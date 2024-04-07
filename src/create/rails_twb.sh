@@ -2,7 +2,7 @@
 
 set -e
 
-source $devscript_path/lib/support/create/index.sh
+source $devscript_path/lib/support/lib-create.sh
 
 main() {
   local script=create/rails.sh
