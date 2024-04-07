@@ -2,43 +2,16 @@
 
 set -e
 
+source $(dirname "$0")/config.sh
+source $nex_support_path/src/plugin/install/helpers.sh
+
 main() {
-  local title="DevScript"
-  local dir_name="devscript"
-  local start_text='__devscript_start'
-  local end_text='__devscript_end'
-  local bashrc="$HOME/.bashrc"
-  local devscript_path=$(get_root_path)/$dir_name
-  echo " Installing - $title"
+  uninstall_if $@
+  start
+  validate
   remove_from_bashrc
   copy_to_bashrc
-  echo ""
-  echo " done"
-  echo ""
+  finish
 }
 
-get_root_path() {
-  local user=$(whoami)
-  if [ "$user" = "codespace" ]; then
-    echo /workspaces/.codespaces/.persistedshare
-  else
-    echo $HOME/dotfiles
-  fi
-}
-
-remove_from_bashrc() {
-  sed -i '/#'$start_text'/,/#'$end_text'/{d}' $bashrc
-}
-
-copy_to_bashrc() {
-  echo "" >> $bashrc
-  echo "#$start_text" >> $bashrc
-  echo 'export devscript_path='$devscript_path >> $bashrc
-  echo 'export PATH=$devscript_path/bin:$PATH' >> $bashrc
-  echo "#$end_text" >> $bashrc
-  echo "" >> $bashrc
-}
-
-# _end_
-main
-
+main $@
